@@ -6,7 +6,7 @@ spring:
         name: FackLuckinCoffee
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/luckin
+        url: jdbc:mysql://localhost:3306/luckin?allowPublicKeyRetrieval=true&useSSL=false
         username: root
         password: root
         type: com.alibaba.druid.pool.DruidDataSource
