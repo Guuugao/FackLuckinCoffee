@@ -27,7 +27,7 @@ public interface ListOrderMapper extends BaseMapper<User> {
     @Select("select balance from users where user_id = #{userId}")
     double getBalanceNumber(String userId);
 
-    @Update("update users set balance = #{balance} where user_id = #{userId}")
+    @Update("update users set balance = balance + #{balance} where user_id = #{userId}")
     int modifyBalance(String userId, double balance);
 
     @Select("select * from users where username = #{username}")
