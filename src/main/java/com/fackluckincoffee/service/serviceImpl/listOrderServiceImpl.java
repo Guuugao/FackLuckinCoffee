@@ -4,7 +4,7 @@ import com.fackluckincoffee.entity.PersonalInfoPage.User;
 import com.fackluckincoffee.entity.PersonalInfoPage.individualCoffee;
 import com.fackluckincoffee.entity.PersonalInfoPage.listOrder;
 import com.fackluckincoffee.entity.PersonalInfoPage.modifyState;
-import com.fackluckincoffee.mapper.PersonalInfoPage.listOrderMapper;
+import com.fackluckincoffee.mapper.PersonalInfoPage.ListOrderMapper;
 import com.fackluckincoffee.service.listOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
 public class listOrderServiceImpl implements listOrderService {
 
     @Autowired
-    listOrderMapper listOrderMapper;
+    ListOrderMapper listOrderMapper;
 
     @Override
     public List<listOrder> getListOrder(String id) {

@@ -49,7 +49,7 @@ public class OrderController {
             orderResponse = orderService.postOrder(orderRequest);
         } catch (RuntimeException e) {
             result.setCode(0);
-            result.setMsg("未知产品id");
+            result.setMsg(e.getMessage());
             return result;
         }
 
