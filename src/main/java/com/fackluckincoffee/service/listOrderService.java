@@ -1,5 +1,6 @@
 package com.fackluckincoffee.service;
 
+import com.fackluckincoffee.entity.PersonalInfoPage.LoginRequest;
 import com.fackluckincoffee.entity.PersonalInfoPage.User;
 import com.fackluckincoffee.entity.PersonalInfoPage.listOrder;
 import com.fackluckincoffee.entity.PersonalInfoPage.modifyState;
@@ -15,4 +16,6 @@ public interface listOrderService {
     modifyState modifyBalance(String userId, double balance);
 
     User login(String username);
+
+    User register(LoginRequest loginRequest);
 }

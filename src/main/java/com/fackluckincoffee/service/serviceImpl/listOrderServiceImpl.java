@@ -1,14 +1,12 @@
 package com.fackluckincoffee.service.serviceImpl;
 
-import com.fackluckincoffee.entity.PersonalInfoPage.User;
-import com.fackluckincoffee.entity.PersonalInfoPage.individualCoffee;
-import com.fackluckincoffee.entity.PersonalInfoPage.listOrder;
-import com.fackluckincoffee.entity.PersonalInfoPage.modifyState;
+import com.fackluckincoffee.entity.PersonalInfoPage.*;
 import com.fackluckincoffee.mapper.PersonalInfoPage.ListOrderMapper;
 import com.fackluckincoffee.service.listOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,5 +59,19 @@ public class listOrderServiceImpl implements listOrderService {
     @Override
     public User login(String username) {
         return listOrderMapper.login(username);
+    }
+
+    @Override
+    public User register(LoginRequest loginRequest) {
+        User user = new User();
+        user.setUser_id(loginRequest.getUsername())
+                .setUsername(loginRequest.getUsername())
+                .setPassword(loginRequest.getPassword())
+                .setEmail("not used")
+                .setBalance(BigDecimal.ZERO);
+
+        listOrderMapper.insert(user);
+
+        return user;
     }
 }

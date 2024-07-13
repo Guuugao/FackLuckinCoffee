@@ -59,7 +59,7 @@ public class listOrderController {
         }
     }
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public SaResult login(@RequestBody LoginRequest loginRequest){
         try{
             User user = listOrderServiceImpl.login(loginRequest.getUsername());
@@ -74,9 +74,21 @@ public class listOrderController {
         }
     }
 
-    @RequestMapping("/logout")
+    @GetMapping("/logout")
     public SaResult logout(){
         StpUtil.logout();
         return SaResult.ok("退出登录成功");
+    }
+
+    @RequestMapping("/register")
+    public SaResult register(@RequestBody LoginRequest loginRequest){
+
+        try {
+            listOrderServiceImpl.register(loginRequest);
+        } catch (Exception e) {
+            return SaResult.error("用户名已存在");
+        }
+
+        return SaResult.ok("注册成功");
     }
 }

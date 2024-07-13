@@ -13,7 +13,6 @@ import java.util.List;
 
 @Mapper
 public interface ListOrderMapper extends BaseMapper<User> {
-
     @Select("select order_id orderId, total_price totalPrice, status from orders where user_id = #{userId}")
     List<listOrder> getListOrder(String userId);
 
